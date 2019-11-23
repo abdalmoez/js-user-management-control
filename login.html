@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/fontawesome-5.0.8-all.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="ml-auto mr-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Sign in Account</h4>
+            <p class="text-center">Enter your informations to get started!</p>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input name="email" id="email" class="form-control" placeholder="Email address" type="email">
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input id="password" name="password" class="form-control" placeholder="Create password" type="password">
+            </div>
+            <button type="submit" class="btn-block btn btn-primary" onclick="verif()">Sign in</button>
+            <div class="p-2">
+                <p>Don't have an Account! <a href="signup.html">Sign Up Here</a><br>
+                    Forgot <a href="#">Password?</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        /* */
+        function addlocalStorage() {
+
+            var allUsers = JSON.parse(localStorage.getItem("users") || "[]");
+            var user = {
+                id: allUsers.length + 1,
+                email: document.getElementById('Email1').value,
+                password: document.getElementById('Password1').value,
+            };
+            allUsers.push(user);
+            localStorage.setItem("users", JSON.stringify(allUsers));
+
+        }
+
+        /**/
+
+        function checkuser(email, password) {
+
+            array = JSON.parse(localStorage.getItem("users"));
+
+            for (i = 0; i < array.length; i++) {
+                if ((array[i].Email === email) && array[i].Password === password) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        var remainingAttempts = 3;
+
+        function verif() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (checkuser(email, password)) {
+                alert('Login successful');
+            } else {
+                remainingAttempts--;
+
+                var msg = '';
+
+                msg += 'username or password are incorrect: ';
+
+                msg += remainingAttempts + ' attempts left.';
+
+                alert(msg);
+
+                email = '';
+                password = '';
+                console.log(remainingAttempts);
+                if (remainingAttempts <= 0) {
+                    alert('Closing window...');
+                    window.close();
+                }
+            }
+        }
+    </script>
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

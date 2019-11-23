@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/fontawesome-5.0.8-all.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="ml-auto mr-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
+            <p class="text-center">Get started with your free account</p>
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input name="firstname" id="firstname" class="form-control" placeholder="First name" type="text">
+            </div> 
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                </div>
+                <input name="lastname" id="lastname" class="form-control" placeholder="Last name" type="text">
+            </div> 
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input name="email" id="email" class="form-control" placeholder="Email address" type="email">
+            </div>
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-phone"></i> <span class="pl-2">+216</span> </span>
+                </div>
+                <input name="phone" id="phone" class="form-control" placeholder="Phone number" type="number">
+                <div class="alert alert-danger mt-2 w-100" id="erroroperator" hidden>This number doesn't belong to any operator.</div>
+                <div class="light alert-light mt-2 w-100" id="operatorname"></div>
+            </div> 
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-birthday-cake"></i> </span>
+                </div>
+                <input name="birthday" id="birthday" class="form-control" placeholder="Birthday" type="date">
+                <div class="alert alert-danger mt-2 w-100" id="errorbirthday" hidden>You must have at least 10 years of age.</div>
+            </div> 
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+                </div>
+                <select name="state" id="state" class="form-control"></select>
+            </div> <!-- form-group end.// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input id="password" name="password" class="form-control" placeholder="Create password" type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input id="rpassword" name="rpassword" class="form-control" placeholder="Confirm password" type="password">
+            </div> <!-- form-group// -->
+            <div class="form-group">
+                <input type="submit" onclick="return registerUser()" class="btn btn-primary btn-block" value="Create Account" />
+            </div> <!-- form-group// -->
+            <p class="text-center">Have an account? <a href="login.html">Log In</a> </p>
+        </form>
+    </div>
+    
+
+
+    <!-- The Modal -->
+    <div id="successRegistration" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <p style="padding-top: 1em;">User registered successfully!</p>
+        </div>
+    </div>
+</body>
+<script src="js/bootstrap.min.js"></script>
+<script src="signup.script.js"></script>
+</html>
