@@ -6,7 +6,7 @@ function registerStates()
 function LoadStates()
 {
     var str='<option selected=""> Select your state</option>';
-    JSON.parse(localStorage.getItem('states')).forEach(state => {str+=`<option value='${state}'>${state}</option>`;});
+    JSON.parse(localStorage.getItem('states') || '[]').forEach(state => {str+=`<option value='${state}'>${state}</option>`;});
     document.getElementById('state').innerHTML=str;
 }
 LoadStates();
